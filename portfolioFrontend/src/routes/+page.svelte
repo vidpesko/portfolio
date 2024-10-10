@@ -51,9 +51,9 @@
                 <p class="mt-4 text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit unde quidem nostrum culpa esse labore expedita similique iusto? Enim!</p>
 
             <!-- CTO -->
-            <button class="btn-custom mt-10">
+            <a href="#projekti" class="btn-custom mt-10">
                 <span>Poglej projekte</span>
-            </button>
+            </a>
         </div>
     </section>
 
@@ -66,11 +66,11 @@
         <h1 class="text-4xl my-10"><span>02.</span> Nekaj projektov</h1>
 
         <!-- Project -->
-        <div class="flex justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 border-2 border-transparent transition hover:border-stone-500 mb-4 hover:text-white" style="background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
+        <div class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 border-2 border-transparent transition hover:border-stone-500 mb-4 hover:text-white" style="background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
             <!-- Image -->
-            <img class="rounded" src="https://picsum.photos/id/237/600/300" alt="">
+            <img class="rounded lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src="https://picsum.photos/id/237/500/300" alt="">
 
-            <div class="text-end z-10">
+            <div class="lg:text-end text-center max-w-full z-10 lg:basis-0 lg:grow">
                 <!-- Title -->
                 <h2 class="text-3xl mb-4 font-bold">Lorem, ipsum.</h2>
                 <!-- Description -->
@@ -78,7 +78,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sunt quia enim nemo quod necessitatibus eligendi eveniet.
                 </p>
                 <!-- Stats -->
-                <div class="stats shadow mb-4 rounded-lg text-inherit">
+                <div class="stats shadow mb-4 rounded-lg text-inherit w-full">
                     <div class="stat place-items-center">
                         <div class="stat-title">Prenosi</div>
                         <div class="stat-value">31K</div>
@@ -103,11 +103,11 @@
             </div>
         </div>
 
-        <div class="flex justify-end p-4 rounded-xl bg-gradient-to-r gap-4 border-2 border-transparent transition hover:border-stone-500 project-flip" style="background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
+        <div class="flex justify-end p-4 rounded-xl bg-gradient-to-r gap-4 border-2 border-transparent transition hover:border-stone-500 project-flip" style="background: linear-gradient(to right, #08203e, #557c93);">
             <!-- Image -->
-            <img class="rounded" src="https://picsum.photos/id/237/600/300" alt="">
+            <img class="rounded w-full object-cover" src="https://picsum.photos/id/237/600/300" alt="">
 
-            <div class="text-end z-10">
+            <div class="text-end w-3/6 z-10">
                 <!-- Title -->
                 <h2 class="text-3xl mb-4 text-white font-bold">Lorem, ipsum.</h2>
                 <!-- Description -->
