@@ -2,7 +2,7 @@
     import logo from "../static/images/logo-svetel.svg";
 </script>
 
-<div class="w-screen flex items-center p-4 pe-6 absolute">
+<div class="w-screen flex items-center p-4 pe-6">
     <div class="flex-1">
         <a href="/" class="btn btn-ghost text-xl">VP</a>
     </div>

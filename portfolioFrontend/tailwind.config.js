@@ -14,7 +14,8 @@ export default {
     },
   },
   plugins: [
-    require("daisyui")
+    require("daisyui"),
+    require("tailwindcss-animated"),
   ],
   daisyui: {
     themes: [
