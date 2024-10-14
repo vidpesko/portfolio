@@ -105,15 +105,15 @@
 
     /* PROJECT DESIGN */
     .project-flip img {
-        @apply order-last;
+        @apply lg:order-last;
     }
 
     .project-flip > div {
-        @apply text-start;
+        @apply lg:text-start;
     }
 
     .project-flip div:last-child {
-        @apply flex-row;
+        @apply lg:flex-row;
     }
 
 
@@ -143,6 +143,19 @@
 
     .not-selected-tab {
         @apply border-l-stone-500 border-l-2;
+    }
+
+    /* SIDEBAR SOCIAL LINKS */
+    .social-link {
+        @apply p-2 transition hover:text-primary mx-auto hover:translate-y-1;
+    }
+
+    .social-link:last-of-type {
+        @apply mb-4;
+    }
+
+    .social-link > * {
+        @apply text-3xl;
     }
 }
 

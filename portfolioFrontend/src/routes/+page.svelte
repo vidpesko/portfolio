@@ -77,10 +77,10 @@
     </section>
 
     <!-- About me -->
-    <section id="jaz" class="mb-56">
+    <section id="jaz" class="lg:mb-56 mb-10">
         <h1 class="section-heading"><span>01.</span> O meni</h1>
 
-        <div class="flex gap-x-8">
+        <div class="flex flex-wrap gap-x-8">
             <!-- Description -->
             <div class="grow basis-0 text-md">
                 <p class="pb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit deleniti, porro beatae doloribus rem ipsum facilis eum <a class="link link-primary" href="https://google.com">similique</a> ratione delectus saepe fuga aliquam quam. Voluptates voluptatem aliquam iste aliquid fugit!</p>
@@ -99,7 +99,7 @@
                 </ul>
             </div>
             <!-- Image -->
-            <div class="grow basis-0">
+            <div class="grow lg:basis-0 w-full">
                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                 <div
@@ -125,8 +125,9 @@
                 }}
 
                 id="tilt"
-                class="bg-[url('/src/lib/static/images/headshot.jpg')] w-4/6 h-5/6 mx-auto rounded-lg bg-cover bg-center bg-no-repeat hover:cursor-pointer">
+                class="lg:block hidden bg-[url('/src/lib/static/images/headshot.jpg')] w-4/6 h-5/6 mx-auto rounded-lg bg-cover bg-center bg-no-repeat hover:cursor-pointer">
                 </div>
+                <img class="lg:hidden h-4/6 w-5/6 object-cover mx-auto rounded-lg mt-16" src="/src/lib/static/images/headshot.jpg" alt="">
             </div>
         </div>
     </section>
@@ -144,7 +145,7 @@
             <!-- Image -->
             <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src={project.cover_img} alt="">
 
-            <div class="lg:text-end text-center max-w-full z-10 lg:basis-0 lg:grow">
+            <div class="lg:text-end text-center lg:w-auto w-full max-w-full z-10 lg:basis-0 lg:grow">
                 <!-- Title -->
                 <h2 class="text-3xl mb-4 font-bold">{project.name}</h2>
                 <!-- Description -->
