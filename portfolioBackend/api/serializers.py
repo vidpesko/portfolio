@@ -29,7 +29,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ["name", "description", "highlighted", "background_gradient", "tags", "links", "stats"]
+        fields = ["name", "description", "highlighted", "background_gradient", "tags", "links", "stats", "cover_img"]
 
 
 # Experience serializer

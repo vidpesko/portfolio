@@ -43,6 +43,7 @@ class Project(models.Model):
     tags = models.ManyToManyField(Tag)
     links = models.ManyToManyField(ProjectLink)
     stats = models.ManyToManyField(ProjectStat)
+    cover_img = models.ImageField(null=True, upload_to='project-cover/')
 
     # Display properties
     highlighted = models.BooleanField(default=False)

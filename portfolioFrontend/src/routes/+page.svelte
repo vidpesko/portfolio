@@ -142,7 +142,7 @@
         <!-- Project -->
         <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition hover:scale-105 mb-4 hover:text-white" style={project.background_gradient}>
             <!-- Image -->
-            <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src="https://picsum.photos/id/237/500/300" alt="">
+            <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src={project.cover_img} alt="">
 
             <div class="lg:text-end text-center max-w-full z-10 lg:basis-0 lg:grow">
                 <!-- Title -->
@@ -168,7 +168,7 @@
                     <!-- Links -->
                     <div class="flex justify-start gap-x-4">
                         {#each project.links as link}
-                        <a href={link.url} class="transition hover:translate-y-1 text-xl">
+                        <a href={link.url} class="transition hover:translate-y-0.5 text-xl">
                             {#if link.icon == "github"}
                             <GithubIcon />
                             {:else}
@@ -181,7 +181,7 @@
                     <!-- Skills / technologies -->
                     <div class="flex justify-end gap-x-4">
                         {#each project.tags as tag}
-                        <p style="background-color: {tag.bg_color};" class="badge border-0 p-3 text-white transition hover:translate-y-1">{tag.name}</p>
+                        <p style="background-color: {tag.bg_color};" class="badge border-0 p-3 text-white transition hover:translate-y-0.5">{tag.name}</p>
                         {/each}
                     </div>
                 </div>
