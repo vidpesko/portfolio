@@ -1,10 +1,10 @@
 <script>
-    import logo from "../static/images/logo-svetel.svg";
+    import logo from "../static/images/logo-white.png";
 </script>
 
 <div class="w-screen flex items-center p-4 pe-6">
     <div class="flex-1">
-        <a href="/" class="btn btn-ghost text-xl">VP</a>
+        <a href="/" class="btn btn-ghost text-xl"><img src={logo} alt="" width="60px"></a>
     </div>
     <div class="flex-none">
         <ul class="flex items-center gap-x-4">

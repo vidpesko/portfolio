@@ -41,6 +41,8 @@
     let aboutImg;
     let aboutImgWidth;
     let aboutImgHeight;
+
+    export let data;
 </script>
 
 <div class="w-[70%] max-w-7xl">
@@ -69,7 +71,7 @@
 
     <!-- About me -->
     <section id="jaz" class="mb-56">
-        <h1 class="text-4xl mb-10"><span>01.</span> O meni</h1>
+        <h1 class="section-heading"><span>01.</span> O meni</h1>
 
         <div class="flex gap-x-8">
             <!-- Description -->
@@ -124,19 +126,23 @@
 
     <!-- Projects -->
     <section id="projekti" class="mb-64">
-        <h1 class="text-4xl my-10"><span>02.</span> Nekaj projektov</h1>
+        <h1 class="section-heading"><span>02.</span> Nekaj projektov</h1>
 
+        {#await data.projects}
+        ...cakam
+        {:then}
+        {#each data.highlightedProj as project, i}
         <!-- Project -->
-        <div class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition hover:scale-105 mb-4 hover:text-white" style="background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
+        <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition hover:scale-105 mb-4 hover:text-white" style="background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
             <!-- Image -->
             <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src="https://picsum.photos/id/237/500/300" alt="">
 
             <div class="lg:text-end text-center max-w-full z-10 lg:basis-0 lg:grow">
                 <!-- Title -->
-                <h2 class="text-3xl mb-4 font-bold">Lorem, ipsum.</h2>
+                <h2 class="text-3xl mb-4 font-bold">{project.name}</h2>
                 <!-- Description -->
                 <p class="text-md mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sunt quia enim nemo quod necessitatibus eligendi eveniet.
+                    {project.description}
                 </p>
                 <!-- Stats -->
                 <div class="stats shadow mb-4 rounded-lg text-inherit w-full">
@@ -157,7 +163,7 @@
                     </div>
                 </div>
                 <!-- Links, technologies -->
-                <div class="flex justify-between gap-x-4 mb-4">
+                <div class="flex justify-between gap-x-4 mb-4 flex-row-reverse">
                     <!-- Links -->
                     <div class="flex justify-start gap-x-4">
                         <a href="git.com" class="transition hover:translate-y-1">G</a>
@@ -172,53 +178,20 @@
                 </div>
             </div>
         </div>
-
-        <div class="flex justify-end p-4 rounded-xl bg-gradient-to-r gap-4 border-2 border-transparent transition hover:border-stone-500 project-flip" style="background: linear-gradient(to right, #08203e, #557c93);">
-            <!-- Image -->
-            <img class="rounded w-full object-cover" src="https://picsum.photos/id/237/600/300" alt="">
-
-            <div class="text-end w-3/6 z-10">
-                <!-- Title -->
-                <h2 class="text-3xl mb-4 text-white font-bold">Lorem, ipsum.</h2>
-                <!-- Description -->
-                <p class="text-white text-md mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sunt quia enim nemo quod necessitatibus eligendi eveniet.
-                </p>
-                <!-- Stats -->
-                <div class="stats shadow mb-4 w-full rounded-lg text-white">
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Prenosi</div>
-                        <div class="stat-value">31K</div>
-                        <div class="stat-desc">Od objave, leta 2022</div>
-                    </div>
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Uporabnikov</div>
-                        <div class="stat-value text-secondary">4,200</div>
-                        <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
-                    </div>
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Noih registracij</div>
-                        <div class="stat-value">1,200</div>
-                        <div class="stat-desc">dnevno </div>
-                    </div>
-                </div>
-                <!-- Skills / technologies -->
-                <div class="flex justify-end gap-x-4 mb-4">
-                    <p class="badge badge-primary">Svelte</p>
-                    <p class="badge badge-accent">CSS</p>
-                </div>
-            </div>
-        </div>
+        {/each}
+        {/await}
     </section>
 
+    <!-- Experience -->
     <section id="izkusnje" class="mb-64">
-        <h1 class="text-4xl mb-10"><span>03.</span> Izkušnje</h1>
+        <h1 class="section-heading"><span>03.</span> Izkušnje</h1>
 
         <div class="flex gap-x-10">
             <!-- Sidebar -->
             <div class="">
                 <ul>
                     <li>Kolektor Etra</li>
+                    <li>Prosen</li>
                 </ul>
             </div>
             <!-- Job description -->
