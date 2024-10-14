@@ -135,6 +135,15 @@
     .section-heading span {
         @apply text-primary;
     }
+
+    /* EXPERIENCE SECTION */
+    .selected-tab {
+        @apply text-primary border-l-primary border-l-4 rounded;
+    }
+
+    .not-selected-tab {
+        @apply border-l-stone-500 border-l-2;
+    }
 }
 
 @font-face {

@@ -18,3 +18,17 @@ export async function getProjects(highlighted) {
 
     return await response.json();
 }
+
+export async function getExperiences() {
+    let url = BASE_PATH + "/list-experiences/";
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        return {
+            error: response.status
+        }
+    }
+
+    return await response.json();
+}

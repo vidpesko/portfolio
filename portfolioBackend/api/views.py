@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 
-from .models import Project
-from .serializers import ProjectSerializer
+from .models import Project, Experience
+from .serializers import ProjectSerializer, ExperienceSerializer
 
 
 @api_view(['GET'])
@@ -13,7 +13,7 @@ def home(request):
 
 
 # Get all projects
-class ProjectList(generics.ListCreateAPIView):
+class ProjectList(generics.ListAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
@@ -28,7 +28,6 @@ class ProjectList(generics.ListCreateAPIView):
         return queryset
 
 
-# Get highlighted projects
-class HighlightedProjectList(generics.ListAPIView):
-    queryset = Project.objects.filter(highlighted=True)
-    serializer_class = ProjectSerializer
+class ExperienceList(generics.ListAPIView):
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer

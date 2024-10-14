@@ -1,6 +1,9 @@
 <script>
     // Images & static files
     import Headshot from "$lib/static/images/headshot.jpg";
+    // Icons
+    import GithubIcon from "virtual:icons/mdi/github";
+    import WebIcon from "virtual:icons/mdi/web";
 
     // Typewriter on heading effect
 	let visible = true;
@@ -43,7 +46,11 @@
     let aboutImgHeight;
 
     export let data;
+
+    // Experinces section
+    let currentExp = 0;
 </script>
+
 
 <div class="w-[70%] max-w-7xl">
     <!-- Hero section -->
@@ -133,7 +140,7 @@
         {:then}
         {#each data.highlightedProj as project, i}
         <!-- Project -->
-        <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition hover:scale-105 mb-4 hover:text-white" style="background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
+        <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition hover:scale-105 mb-4 hover:text-white" style={project.background_gradient}>
             <!-- Image -->
             <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src="https://picsum.photos/id/237/500/300" alt="">
 
@@ -146,34 +153,36 @@
                 </p>
                 <!-- Stats -->
                 <div class="stats shadow mb-4 rounded-lg text-inherit w-full">
+                    {#each project.stats as stat}
                     <div class="stat place-items-center">
-                        <div class="stat-title">Prenosi</div>
-                        <div class="stat-value">31K</div>
-                        <div class="stat-desc">Od objave, leta 2022</div>
+                        <div class="stat-title">{stat.header}</div>
+                        <div class="stat-value">{stat.value}</div>
+                        {#if stat.label}
+                        <div class="stat-desc">{stat.label}</div>
+                        {/if}
                     </div>
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Uporabnikov</div>
-                        <div class="stat-value">4,200</div>
-                        <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
-                    </div>
-                    <div class="stat place-items-center">
-                        <div class="stat-title">Noih registracij</div>
-                        <div class="stat-value">1,200</div>
-                        <div class="stat-desc">dnevno </div>
-                    </div>
+                    {/each}
                 </div>
                 <!-- Links, technologies -->
                 <div class="flex justify-between gap-x-4 mb-4 flex-row-reverse">
                     <!-- Links -->
                     <div class="flex justify-start gap-x-4">
-                        <a href="git.com" class="transition hover:translate-y-1">G</a>
-                        <a href="web.com">W</a>
+                        {#each project.links as link}
+                        <a href={link.url} class="transition hover:translate-y-1 text-xl">
+                            {#if link.icon == "github"}
+                            <GithubIcon />
+                            {:else}
+                            <WebIcon />
+                            {/if}
+                        </a>
+                        {/each}
                     </div>
                     
                     <!-- Skills / technologies -->
                     <div class="flex justify-end gap-x-4">
-                        <p class="badge badge-primary transition hover:translate-y-1">Svelte</p>
-                        <p class="badge badge-accent transition hover:translate-y-1">CSS</p>
+                        {#each project.tags as tag}
+                        <p style="background-color: {tag.bg_color};" class="badge border-0 p-3 text-white transition hover:translate-y-1">{tag.name}</p>
+                        {/each}
                     </div>
                 </div>
             </div>
@@ -188,23 +197,29 @@
 
         <div class="flex gap-x-10">
             <!-- Sidebar -->
+            {#await data.experiences}
+            ...cakam
+            {:then}
             <div class="">
                 <ul>
-                    <li>Kolektor Etra</li>
-                    <li>Prosen</li>
+                    {#each data.experiences as exp, i}
+                    <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <li class:selected-tab={currentExp == i} class:not-selected-tab={currentExp != i} class="transition p-3 cursor-pointer hover:bg-stone-100 hover:bg-opacity-5" on:click={() => {currentExp = i}}>{exp.company_name}</li>
+                    {/each}
                 </ul>
             </div>
             <!-- Job description -->
             <div class="">
-                <h3 class="text-2xl text-white">Razvijalec <span class="text-primary">@ Kolektor Etra</span></h3>
+                <h3 class="text-2xl text-white">{data.experiences[currentExp].job_role} <span class="text-primary">@ {data.experiences[currentExp].company_name}</span></h3>
                 <!-- When -->
-                <p class="text-sm">Maj 2018 - Junij 2019</p>
+                <p class="text-sm">{data.experiences[currentExp].employment_period}</p>
                 <!-- My role -->
                 <ul>
-                    <li>Pomoc pri delu</li>
-                    <li>Pomoc pri delu</li>
+                    <li>{data.experiences[currentExp].description}</li>
                 </ul>
             </div>
+            {/await}
         </div>
     </section>
 </div>
