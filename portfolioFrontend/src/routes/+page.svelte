@@ -10,7 +10,7 @@
     let headingWordIndex = 0;
     // List of headings with colors
     let headingWords = [
-        {word: "samooklic", color: "text-primary"},
+        {word: "zagreti", color: "text-primary"},
         {word: "ponosni", color: "text-red-500"},
     ]
 
@@ -52,12 +52,12 @@
 </script>
 
 
-<div class="w-[70%] max-w-7xl">
+<div class="lg:w-[70%] w-[80%] max-w-7xl">
     <!-- Hero section -->
-    <section class="text-secondary h-screen flex items-center mb-32">
+    <section class="text-secondary h-[85vh] flex items-center mb-32 mt-16">
         <div class="">
             <!-- Header / welcome msg -->
-            <h1 class="lg:text-8xl text-7xl font-heading font-extrabold leading-[1.1]">
+            <h1 class="lg:text-7xl text-6xl font-heading font-extrabold leading-[1.1]">
                 Zdravo, <button class="animate-wiggle-more animate-twice cursor-default">👋</button><br>
                 sem <span class="text-white">Vid Pesko</span>,<br>
                 {#if visible}
@@ -67,7 +67,7 @@
                 <br class="xl:hidden">
                 programer</h1>
                 <!-- Short description -->
-                <p class="mt-8 text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit unde quidem nostrum culpa esse labore expedita similique iusto? Enim!</p>
+                <p class="mt-8 text-xl text-stone-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores odit unde quidem nostrum culpa esse labore expedita similique iusto? Enim!</p>
 
             <!-- CTO -->
             <a href="#projekti" class="btn-custom mt-10">
@@ -77,7 +77,7 @@
     </section>
 
     <!-- About me -->
-    <section id="jaz" class="lg:mb-56 mb-10">
+    <section id="jaz" class="section">
         <h1 class="section-heading"><span>01.</span> O meni</h1>
 
         <div class="flex flex-wrap gap-x-8">
@@ -89,17 +89,17 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt qui, totam fuga, sed autem quasi voluptate nostrum placeat illum nulla explicabo dolore dolores, atque perferendis adipisci amet aut ullam velit.</p>
                 <!-- Skills / technologies -->
                 <p>Nekaj tehnologij, ki sem jih pred kratkim uporabljal.</p>
-                <ul>
-                    <li>Svelte / SvelteKit</li>
-                    <li>Svelte / SvelteKit</li>
-                    <li>Svelte / SvelteKit</li>
-                    <li>Svelte / SvelteKit</li>
-                    <li>Svelte / SvelteKit</li>
-                    <li>Svelte / SvelteKit</li>
+                <ul class="mt-4 grid grid-cols-2 recent-skills">
+                    <li>Svelte & SvelteKit</li>
+                    <li>Node.js</li>
+                    <li>Django Framework</li>
+                    <li>Django REST Framework</li>
+                    <li>Tailwind CSS</li>
+                    <li>Adobe Photoshop</li>
                 </ul>
             </div>
             <!-- Image -->
-            <div class="grow lg:basis-0 w-full">
+            <div class="grow md:basis-0 w-full">
                 <!-- svelte-ignore a11y-no-static-element-interactions -->
                 <!-- svelte-ignore a11y-mouse-events-have-key-events -->
                 <div
@@ -125,15 +125,15 @@
                 }}
 
                 id="tilt"
-                class="lg:block hidden bg-[url('/src/lib/static/images/headshot.jpg')] w-4/6 h-5/6 mx-auto rounded-lg bg-cover bg-center bg-no-repeat hover:cursor-pointer">
+                class="md:block hidden bg-[url('/src/lib/static/images/headshot.jpg')] w-4/6 h-5/6 mx-auto rounded-lg bg-cover bg-center bg-no-repeat hover:cursor-pointer">
                 </div>
-                <img class="lg:hidden h-4/6 w-5/6 object-cover mx-auto rounded-lg mt-16" src="/src/lib/static/images/headshot.jpg" alt="">
+                <img class="md:hidden h-4/6 w-5/6 object-cover mx-auto rounded-lg mt-16" src="/src/lib/static/images/headshot.jpg" alt="">
             </div>
         </div>
     </section>
 
     <!-- Projects -->
-    <section id="projekti" class="mb-64">
+    <section id="projekti" class="section">
         <h1 class="section-heading"><span>02.</span> Nekaj projektov</h1>
 
         {#await data.projects}
@@ -141,7 +141,7 @@
         {:then}
         {#each data.highlightedProj as project, i}
         <!-- Project -->
-        <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition hover:scale-105 mb-4 hover:text-white" style={project.background_gradient}>
+        <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition lg:hover:scale-105 mb-4 hover:text-white" style={project.background_gradient}>
             <!-- Image -->
             <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src={project.cover_img} alt="">
 
@@ -153,7 +153,7 @@
                     {project.description}
                 </p>
                 <!-- Stats -->
-                <div class="stats shadow mb-4 rounded-lg text-inherit w-full">
+                <div class="stats shadow mb-4 rounded-lg text-inherit w-full z-10">
                     {#each project.stats as stat}
                     <div class="stat place-items-center">
                         <div class="stat-title">{stat.header}</div>
@@ -193,7 +193,7 @@
     </section>
 
     <!-- Experience -->
-    <section id="izkusnje" class="mb-64">
+    <section id="izkusnje" class="section">
         <h1 class="section-heading"><span>03.</span> Izkušnje</h1>
 
         <div class="flex gap-x-10">

@@ -6,10 +6,13 @@ export default {
       colors: {
         background: '#0b0c10',
         primary: '#66fcf1',
-        secondary: '#c5c6c7'
+        secondary: '#c5c6c7',
+        background: '#111111',
       },
       fontFamily: {
-        heading: ['HeadingFont', 'sans-serif']
+        heading: ['HeadingFont', 'sans-serif'],
+        techno: ['TechnoFont', 'sans-serif'],
+        techno2: ['TechnoFont2', 'sans-serif'],
       }
     },
   },
