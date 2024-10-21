@@ -89,7 +89,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt qui, totam fuga, sed autem quasi voluptate nostrum placeat illum nulla explicabo dolore dolores, atque perferendis adipisci amet aut ullam velit.</p>
                 <!-- Skills / technologies -->
                 <p>Nekaj tehnologij, ki sem jih pred kratkim uporabljal.</p>
-                <ul class="mt-4 grid grid-cols-2 recent-skills">
+                <ul class="mt-4 md:grid md:grid-cols-2 recent-skills">
                     <li>Svelte & SvelteKit</li>
                     <li>Node.js</li>
                     <li>Django Framework</li>
