@@ -143,7 +143,9 @@
         <!-- Project -->
         <div class:project-flip={Math.abs(i % 2) == 1} class="flex lg:flex-nowrap flex-wrap justify-end items-center p-4 rounded-xl bg-gradient-to-r gap-4 transition lg:hover:scale-105 mb-4 hover:text-white" style={project.background_gradient}>
             <!-- Image -->
-            <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src={project.cover_img} alt="">
+            <div class="lg:pe-4 w-full h-full">
+                <img class="rounded-lg lg:max-w-[600px] lg:max-h-[1000px] max-h-[300px] w-full object-cover lg:basis-0 lg:grow" src={project.cover_img} alt="">
+            </div>
 
             <div class="lg:text-end text-center lg:w-auto w-full max-w-full z-10 lg:basis-0 lg:grow">
                 <!-- Title -->
